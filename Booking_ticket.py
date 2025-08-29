@@ -32,9 +32,10 @@ class Train:
             print("No seats booked yet!!!")
 
 
-p1 = Passenger("NF", 35)
-p2 = Passenger("Eminem", 40)
-p3 = Passenger("Syke", 37)
+p1 = Passenger("Rahym", 27)
+p2 = Passenger("Artyk", 25)
+p3 = Passenger("Yusup", 30)
+
 
 t1 = Train(3)
 t1.book_seat(p1)
