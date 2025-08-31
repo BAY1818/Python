@@ -21,6 +21,6 @@ class Grading_system:
             return "E"
 
 
-std1 =Grading_system("Xenia",{"Computer" : 88,"Discrete math":93})
+std1 =Grading_system("Yiting",{"Computer" : 88,"Discrete math":93})
 
 print(f"Student name: {std1.name}, Average: {std1.calculate_grade()}")
