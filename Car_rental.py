@@ -38,10 +38,12 @@ service = RentalService()
 car1 = Car("Lada","Kalina", 80)
 car2 = Car("BMW","M5",640)
 car3 = Car("Toyota","Camry",240)
+car4 = Car("Mercedes","E200",400)
 
 service.add_car(car1)
 service.add_car(car2)
 service.add_car(car3)
+service.add_car(car4)
 
 service.available_cars()
 
