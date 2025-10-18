@@ -5,7 +5,6 @@ using namespace std;
 
 //For generating array 
 void genArr(int arr[], int arrSize){
-    
     for (int i = 0; i <= arrSize; i++){
         arr[i] = i + 1;
     }
@@ -46,7 +45,6 @@ int binarySearch(int* arr, int arrSize, int target){
 }
 
 
-
 int main(){
     srand(time(0));
     int arrSize;
@@ -55,9 +53,11 @@ int main(){
     int* arr = new int[arrSize];
     
     genArr(arr,arrSize);
-    cout << "\nCreated array of size " << arrSize << " successfully." << endl;
+    cout << "Created array of size " << arrSize << " successfully." << endl;
            
-    int target = 500000;
+    int target;
+    cout << "Enter your target: ";
+    cin >> target;
     
     clock_t startTime = clock();
     linearSearch(arr, arrSize, target);
@@ -70,7 +70,6 @@ int main(){
     clock_t end = clock();
     double elapse = double(end - start) / CLOCKS_PER_SEC;
     cout << "Binary search time: " <<  elapse << " sec" << endl;
-
 
     delete [] arr;
     return 0;
