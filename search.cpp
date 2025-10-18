@@ -3,6 +3,7 @@
 #include <cstdlib>
 using namespace std;
 
+//For generating array 
 void genArr(int arr[], int arrSize){
     
     for (int i = 0; i <= arrSize; i++){
@@ -26,6 +27,24 @@ int linearSearch(int* arr, int arrSize, int target){
     
 }
 
+//Binary search algorithm
+int binarySearch(int* arr, int arrSize, int target){
+    int left = 0;
+    int right = arrSize - 1;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] == target)
+            return mid;
+        else if (arr[mid] < target)
+            left = mid + 1;
+        else
+            right = mid - 1;
+    }
+    return -1;
+}
+
 
 
 int main(){
@@ -43,8 +62,14 @@ int main(){
     clock_t startTime = clock();
     linearSearch(arr, arrSize, target);
     clock_t endTime = clock();
-    double elapsed = double(endTime - startTime);
-    cout << "Time of searching: " <<  elapsed << "sec"; 
+    double elapsed = double(endTime - startTime) / CLOCKS_PER_SEC;
+    cout << "Linear search time: " <<  elapsed << " sec" << endl;
+
+    clock_t start = clock();
+    binarySearch(arr, arrSize, target);
+    clock_t end = clock();
+    double elapse = double(end - start) / CLOCKS_PER_SEC;
+    cout << "Binary search time: " <<  elapse << " sec" << endl;
 
 
     delete [] arr;
