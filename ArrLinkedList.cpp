@@ -67,7 +67,7 @@ class Node {
         Node(int v) : val(v), next(nullptr){}
 };
 
-class LinkedList : List {
+class LinkedList : public List {
     private:
         Node* head;
         int length;
@@ -102,5 +102,50 @@ class LinkedList : List {
             }
             length--;
         }
+
+        int get(int index) override {
+            Node* temp = head;
+            for (int i = 0; i < index; i++) temp = temp->next;
+            return temp->val;
+        }
+
+        int size() override {
+            return length;
+        }
+
+        ~LinkedList() {
+            while(head) {
+                Node* temp = head;
+                head = head->next;
+                delete temp;
+            }
+        }
 };
+
+void testPerformance(List& list, int n, const string& name) {
+    auto start = high_resolution_clock::now();
+
+    for(int i = 0; i < n; i++){
+        list.insert(0 , i);
+    }
+    for(int i = 0; i < n; ++i){
+        list.remove(0);
+    }
+    
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start).count();
+    cout << name << " took " << duration << " ms" << endl;
+}
+
+int main(){
+    int n = 100000;
+
+    ArrayList arrList;
+    LinkedList linkedList;
+
+    testPerformance(arrList, n , "Array List");
+    testPerformance(linkedList, n , "Linked List");
+
+    return 0;
+}
 
