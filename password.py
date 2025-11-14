@@ -10,3 +10,4 @@ def generate_pw(pw_Length):
 
 for _ in range(n):
     print(generate_pw(pw_Length))
+
